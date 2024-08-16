@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Character Properties")]
+    [SerializeField] private float maxSprintSpeed = 8f;
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float acceleration = 10f;
     [SerializeField] private float friction = 5f;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 moveInput = Vector2.zero;
     private Vector2 mouseInput = Vector2.zero;
+    private bool sprinting = false;
 
     private float xRotation = 0f;
     
@@ -37,6 +39,8 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+
+        sprinting = Input.GetKey(KeyCode.LeftShift);
 
         CharacterUpdate();
         GimbalUpdate();
@@ -60,7 +64,16 @@ public class PlayerController : MonoBehaviour
         }
 
         velocity -= friction * Time.deltaTime * velocity;
-        velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+
+        if (sprinting)
+        {
+            velocity = Vector3.ClampMagnitude(velocity, maxSprintSpeed);
+        }
+        else
+        {
+            velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+        }
+        
     }
 
     private void GimbalUpdate()
