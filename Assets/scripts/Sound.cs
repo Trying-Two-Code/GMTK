@@ -8,9 +8,15 @@ public class Sound : MonoBehaviour
     public AudioClip clip;
     [SerializeField] private AudioSource source;
 
+    private void Start()
+    {
+        Invoke("SetAudioSettings", 1f);
+    }
+
     void SetAudioSettings()
     {
         source.clip = clip;
         source.volume = volume;
+        source.Play();
     }
 }
