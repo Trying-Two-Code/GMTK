@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Lists")]
+    [SerializeField] private AudioClip[] creepySounds;
 
-    // Update is called once per frame
-    void Update()
+    [Header("Components")]
+    public CreateSound createSound;
+
+    void MakeCreepySound()
     {
-        
+
     }
 }

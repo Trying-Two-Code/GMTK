@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("Gimbal not found. Please ensure there is a child GameObject named 'Gimbal'.");
         }
+
+        // keep mouyse confined to center of screen
+        Cursor.lockState = CursorLockMode.Locked;   
     }
 
     private void Update()
