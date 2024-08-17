@@ -18,6 +18,7 @@ public class CreateSound : MonoBehaviour
     {
         //create object
         GameObject soundObject = Instantiate(staticSfxObject, parent);
+        soundObject.transform.localPosition = Vector3.zero;
 
         //give the sound component it's variables
         Sound soundScript = soundObject.GetComponent<Sound>();
@@ -26,8 +27,15 @@ public class CreateSound : MonoBehaviour
         soundScript.timeBeforeDeath = timeBeforeDeath;
     }
 
-    public static void Ambience()
+    public static void Ambience(AudioClip clip, float volume, float distortion, Transform parent, Vector2 timeBeforeDeath)
     {
+        //create object
+        GameObject soundObject = Instantiate(staticSfxObject, parent);
 
+        //give the sound component it's variables
+        Sound soundScript = soundObject.GetComponent<Sound>();
+        soundScript.volume = volume;
+        soundScript.clip = clip;
+        soundScript.timeBeforeDeath = timeBeforeDeath;
     }
 }

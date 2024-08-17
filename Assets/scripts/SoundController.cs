@@ -11,6 +11,7 @@ public class SoundController : MonoBehaviour
     [Header("Components")]
     public CreateSound createSound;
     public Transform Fantom;
+    public Transform Player;
 
     [Header("Variables")]
     //Time spawn is added to how long it takes to spawn in a new sound. This is added to how long the sound lasts so the player has a lot of time in ambience
@@ -46,4 +47,19 @@ public class SoundController : MonoBehaviour
         sfxVolume = 0f;
         ambientVolume = 0f;
     }
+
+    private void Start()
+    {
+        MakeAmbientSounds();
+    }
+
+    public void MakeAmbientSounds()
+    {
+        for (int i = 0; i < ambientSounds.Length; i++)
+        {
+            CreateSound.Ambience(ambientSounds[i], ambientVolume, distortion, Player, new Vector2(10, 100));
+        }
+        
+    }
+
 }
