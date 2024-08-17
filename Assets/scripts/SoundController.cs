@@ -12,6 +12,7 @@ public class SoundController : MonoBehaviour
     public CreateSound createSound;
     public Transform Fantom;
     public Transform Player;
+    public Transform SlowFantom;
 
     [Header("Variables")]
     //Time spawn is added to how long it takes to spawn in a new sound. This is added to how long the sound lasts so the player has a lot of time in ambience
