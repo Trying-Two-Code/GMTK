@@ -14,14 +14,16 @@ public class CreateSound : MonoBehaviour
         staticSfxObject = sfxObj;
     }
 
-    public static void SFX(AudioClip clip, float volume, float distortion, Transform parent)
+    public static void SFX(AudioClip clip, float volume, float distortion, Transform parent, Vector2 timeBeforeDeath)
     {
         //create object
         GameObject soundObject = Instantiate(staticSfxObject, parent);
 
         //give the sound component it's variables
-        soundObject.GetComponent<Sound>().volume = volume;
-        soundObject.GetComponent<Sound>().clip = clip;
+        Sound soundScript = soundObject.GetComponent<Sound>();
+        soundScript.volume = volume;
+        soundScript.clip = clip;
+        soundScript.timeBeforeDeath = timeBeforeDeath;
     }
 
     public static void Ambience()

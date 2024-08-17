@@ -66,8 +66,8 @@ AudioSource:
     - serializedVersion: 3
       time: 0
       value: 0.52815247
-      inSlope: -0.9876492
-      outSlope: -0.9876492
+      inSlope: -4.3080783
+      outSlope: -4.3080783
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -75,15 +75,15 @@ AudioSource:
     - serializedVersion: 3
       time: 0.016163453
       value: 0.4333191
-      inSlope: -31.26254
-      outSlope: -31.26254
+      inSlope: -7.8954062
+      outSlope: -7.8954062
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 1
       outWeight: 0
     - serializedVersion: 3
-      time: 0.040163454
-      value: 0.18270874
+      time: 0.032
+      value: 0.33596802
       inSlope: -1.9539088
       outSlope: -1.9539088
       tangentMode: 0
@@ -100,8 +100,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.066040866
-      value: 0.1574707
+      time: 0.08236777
+      value: 0.18151855
       inSlope: -0.4884772
       outSlope: -0.4884772
       tangentMode: 0
@@ -109,17 +109,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.09991484
-      value: 0.13633728
-      inSlope: -0.1572182
-      outSlope: -0.1572182
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.35904092
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.128
-      value: 0.015625
+      time: 0.107591376
+      value: 0.12081909
       inSlope: -0.1221193
       outSlope: -0.1221193
       tangentMode: 0
@@ -127,8 +118,17 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.256
-      value: 0.0078125
+      time: 0.21012145
+      value: 0.040145874
+      inSlope: -0.1572182
+      outSlope: -0.1572182
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.35904092
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.34988734
+      value: 0.010803223
       inSlope: -0.030529825
       outSlope: -0.030529825
       tangentMode: 0
@@ -216,3 +216,4 @@ MonoBehaviour:
   volume: 0
   clip: {fileID: 0}
   source: {fileID: 4496546941848096581}
+  timeBeforeDeath: {x: 5, y: 10}

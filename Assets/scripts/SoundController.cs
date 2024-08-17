@@ -25,7 +25,7 @@ public class SoundController : MonoBehaviour
     void MakeCreepySound()
     {
         Debug.Log("Creating Creepy Sound he he he he....");
-        CreateSound.SFX(creepySounds[Random.Range(0, creepySounds.Length)], sfxVolume, distortion, Fantom);
+        CreateSound.SFX(creepySounds[Random.Range(0, creepySounds.Length)], sfxVolume, distortion, Fantom, new Vector2(1, 10));
     }
 
     private float waitThisLong = 2f;
