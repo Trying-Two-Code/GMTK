@@ -4898,7 +4898,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48782588a356ea14480a9c6503464be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smellSound: {fileID: 8300000, guid: 895f3c026b45fb1488adab309f9db928, type: 3}
+  audioSource: {fileID: 0}
+  smellSound: {fileID: 8300000, guid: 2cd6ead5a38261f40814460ce8449a4d, type: 3}
+  minScale: 13
+  maxScale: 14
 --- !u!82 &725858132343626911
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4908,7 +4911,8 @@ AudioSource:
   m_GameObject: {fileID: 5827929405356842943}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1a99e9db57102694f8926ffe458cfa0c,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
