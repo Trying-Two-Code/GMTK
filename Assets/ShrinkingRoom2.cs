@@ -2,6 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//INSTRUCTIONS:
+
+//put walls or anything on walls into the Walls list
+
+//put ceiling or anything on ceiling onto Ceiling list
+
+//change speed to be appropriate: .01f is slow and 1 is very fast
+
+//check if player inside, if it starts inside then make shrinking bool = true in the begining
+//If you want to make it check for player in begining go ahead I just don't know how lol, just set shrinking to true and you should be good
+
+
 public class ShrinkingRoom2 : MonoBehaviour
 {
     [Header("Room Parts")]
@@ -11,10 +23,11 @@ public class ShrinkingRoom2 : MonoBehaviour
     public Transform center;
 
     [Header("Variables")]
-    public float speed = 1f;
+    public float speed = .1f;
     [SerializeField] private float ceilingMult = 0.5f;
     [SerializeField] private float playerMult = 0.25f;
     [SerializeField] private float wallMult = 1f;
+    [SerializeField] private bool shrinking = false;
 
     public void Shrink()
     {
@@ -31,9 +44,32 @@ public class ShrinkingRoom2 : MonoBehaviour
 
     private void Update()
     {
-        Shrink();
+        if (shrinking)
+        {
+            Shrink();
+        }
+        
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.tag);
+        if (other.tag == "Player")
+        {
+            Debug.Log("START SHRINKING");
+            shrinking = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log(other.tag);
+        if (other.tag == "Player")
+        {
+            Debug.Log("STOP SHRINKING");
+            shrinking = false;
+            ResetAll();
+        }
+    }
 
     //\/\/\/\/\/\/ RESET OBJECTS POSITIONS \/\/\/\/\/\/
     private void Start()
@@ -54,24 +90,28 @@ public class ShrinkingRoom2 : MonoBehaviour
         AllThings = new obj[Walls.Length + Ceiling.Length + props.Length];
         foreach (Transform roomPart in Walls)
         {
-            i++;
+            
             AllThings[i]._object = roomPart.gameObject;
             AllThings[i].position = roomPart.position;
+            i++;
         }
         foreach (Transform roomPart in Ceiling)
         {
-            i++;
+            
             AllThings[i]._object = roomPart.gameObject;
             AllThings[i].position = roomPart.position;
+            i++;
         }
         foreach (GameObject prop in props)
         {
-            i++;
+            
             AllThings[i]._object = prop;
             AllThings[i].position = prop.transform.position;
+            i++;
         }
     }
 
+    //call this to set all objects back to their original state
     void ResetAll()
     {
         foreach(obj THING in AllThings)
@@ -79,5 +119,7 @@ public class ShrinkingRoom2 : MonoBehaviour
             THING._object.transform.position = THING.position;
         }
     }
+
+    
 
 }
