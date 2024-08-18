@@ -9,6 +9,7 @@ public class Sound : MonoBehaviour
     [SerializeField] private AudioSource source;
     public Vector2 timeBeforeDeath = new Vector2(1, 10);
     public float timeBeforeDeathProper = 0f;
+    public bool loop = false;
     private void Start()
     {
         Invoke("SetAudioSettings", 1f);
@@ -27,6 +28,7 @@ public class Sound : MonoBehaviour
     {
         source.clip = clip;
         source.volume = volume;
+        source.loop = loop;
         source.Play();
     }
 }

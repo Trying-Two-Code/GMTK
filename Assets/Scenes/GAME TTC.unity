@@ -458,6 +458,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 81dc397fc2ab8ce4c95b0c9ba4ebd611, type: 3}
   - {fileID: 8300000, guid: 0d952316819a2004193ad95a175e03e5, type: 3}
   - {fileID: 8300000, guid: 66a06be7fcdc6ed45b63f5079b39f6b0, type: 3}
+  - {fileID: 8300000, guid: 19265c6a235a9a74788eb230f72bd094, type: 3}
+  - {fileID: 8300000, guid: 140a8cc517aecab4a8b4e80bdcbfe7d2, type: 3}
   ambientSounds:
   - {fileID: 8300000, guid: b0f19826d392aec4ab2ed7c1fede3b42, type: 3}
   - {fileID: 8300000, guid: 2e191aa8290c8c945ae261b8e276967a, type: 3}
@@ -2252,7 +2254,7 @@ Transform:
   m_GameObject: {fileID: 1791218969}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.892, y: 14.272, z: 2.33}
+  m_LocalPosition: {x: 8.171, y: 14.747, z: -0.574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
