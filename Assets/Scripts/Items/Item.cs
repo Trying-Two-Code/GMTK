@@ -6,9 +6,14 @@ using UnityEngine;
 public class Item : MonoBehaviour, IInteractable
 {
     public ItemObject item;
+    public GameObject DestroyThis;
     public void Interact(PlayerManager player)
     {
         player.inventory.AddItem(item, 1, this);
+        if(DestroyThis != null)
+        {
+            Destroy(DestroyThis);
+        }
     }
 
     public void DestroyItem()
