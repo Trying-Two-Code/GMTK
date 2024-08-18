@@ -14,13 +14,13 @@ public class Interactions : MonoBehaviour
     [SerializeField] private Transform interactionSource;
     public static KeyCode interactKey = KeyCode.E;
     [SerializeField] private float interactRange;
-    [SerializeField] private GameObject interactPrompt;
+    [SerializeField] private GameObject interactPrompt, swapObject;
     [SerializeField] private PlayerManager plr;
 
     void Update()
     {
         
-        if(Input.GetKeyDown(interactKey))
+        if (Input.GetKeyDown(interactKey))
         {
             Ray ray = new Ray(interactionSource.position, interactionSource.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
@@ -37,11 +37,12 @@ public class Interactions : MonoBehaviour
         if (Physics.Raycast(_ray, out RaycastHit _hit, interactRange) && !disablePrompt)
         {
             interactPrompt?.SetActive(_hit.transform.TryGetComponent(out IInteractable i));
+            
         }
         else
         {
             interactPrompt?.SetActive(false);
         }
-
+        if(swapObject) swapObject.SetActive(!interactPrompt.activeSelf);
     }
 }
