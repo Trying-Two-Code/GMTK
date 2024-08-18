@@ -58,7 +58,7 @@ public class SoundController : MonoBehaviour
     {
         for (int i = 0; i < ambientSounds.Length; i++)
         {
-            CreateSound.Ambience(ambientSounds[i], ambientVolume, distortion, Player, new Vector2(10, 100));
+            CreateSound.Ambience(ambientSounds[i], ambientVolume, distortion, Player, 1000);
         }
         
     }
