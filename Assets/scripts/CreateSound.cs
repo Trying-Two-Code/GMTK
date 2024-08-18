@@ -27,7 +27,7 @@ public class CreateSound : MonoBehaviour
         soundScript.timeBeforeDeath = timeBeforeDeath;
     }
 
-    public static void Ambience(AudioClip clip, float volume, float distortion, Transform parent, Vector2 timeBeforeDeath)
+    public static void Ambience(AudioClip clip, float volume, float distortion, Transform parent, float timeBeforeDeath)
     {
         //create object
         GameObject soundObject = Instantiate(staticSfxObject, parent);
@@ -36,6 +36,7 @@ public class CreateSound : MonoBehaviour
         Sound soundScript = soundObject.GetComponent<Sound>();
         soundScript.volume = volume;
         soundScript.clip = clip;
-        soundScript.timeBeforeDeath = timeBeforeDeath;
+        soundScript.timeBeforeDeathProper = timeBeforeDeath;
+        soundScript.loop = true;
     }
 }
