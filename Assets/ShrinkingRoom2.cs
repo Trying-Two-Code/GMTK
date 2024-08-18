@@ -22,6 +22,11 @@ public class ShrinkingRoom2 : MonoBehaviour
         {
             Walls[i].position = Vector3.MoveTowards(Walls[i].position, center.position, Time.deltaTime * speed * wallMult);
         }
+        for (int i = 0; i < Ceiling.Length; i++)
+        {
+            Ceiling[i].position = Vector3.MoveTowards(Walls[i].position, center.position, Time.deltaTime * speed * wallMult);
+        }
+
     }
 
     private void Update()
