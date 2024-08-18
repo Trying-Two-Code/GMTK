@@ -29,4 +29,50 @@ public class ShrinkingRoom2 : MonoBehaviour
         Shrink();
     }
 
+
+    //\/\/\/\/\/\/ RESET OBJECTS POSITIONS \/\/\/\/\/\/
+    private void Start()
+    {
+        SetObjs();
+    }
+
+    private struct obj
+    {
+        public Vector3 position;
+        public GameObject _object;
+    }
+    private obj[] AllThings;
+
+    private void SetObjs()
+    {
+        int i = 0;
+        AllThings = new obj[Walls.Length + Ceiling.Length + props.Length];
+        foreach (Transform roomPart in Walls)
+        {
+            i++;
+            AllThings[i]._object = roomPart.gameObject;
+            AllThings[i].position = roomPart.position;
+        }
+        foreach (Transform roomPart in Ceiling)
+        {
+            i++;
+            AllThings[i]._object = roomPart.gameObject;
+            AllThings[i].position = roomPart.position;
+        }
+        foreach (GameObject prop in props)
+        {
+            i++;
+            AllThings[i]._object = prop;
+            AllThings[i].position = prop.transform.position;
+        }
+    }
+
+    void ResetAll()
+    {
+        foreach(obj THING in AllThings)
+        {
+            THING._object.transform.position = THING.position;
+        }
+    }
+
 }
