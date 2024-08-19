@@ -14,6 +14,7 @@ public class Interactions : MonoBehaviour
     [SerializeField] private Transform interactionSource;
     public static KeyCode interactKey = KeyCode.E;
     public static KeyCode interactKey2 = KeyCode.Space;
+    public static KeyCode interactKey3 = KeyCode.F;
     [SerializeField] private float interactRange;
     [SerializeField] private GameObject interactPrompt, swapObject;
     [SerializeField] private PlayerManager plr;
@@ -21,7 +22,7 @@ public class Interactions : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(interactKey) || Input.GetKeyDown(interactKey2) || Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(interactKey) || Input.GetKeyDown(interactKey2) || Input.GetKeyDown(interactKey3) || Input.GetMouseButtonDown(0))
         {
             Ray ray = new Ray(interactionSource.position, interactionSource.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange))

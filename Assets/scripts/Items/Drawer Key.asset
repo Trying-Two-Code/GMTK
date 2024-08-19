@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa57e0add5380f34db9f53b700d2a67f, type: 3}
+  m_Name: Drawer Key
+  m_EditorClassIdentifier: 
+  type: 0
+  prefab: {fileID: 5491657306212077004, guid: dec29d543a4b279408d6d62d12a6a5e3, type: 3}
+  description: only works for drawers... seems obvios to me....
+  destroyOnInteract: 1

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
 {
+    public GameObject SpawnOnOpen = null;
     public bool AutoClose = false;
     public bool requireKey = false;
     public InventorySlot Key;
 
     public AudioClip doorCreak;
     public Transform goTo;
+    public Transform spawnAt;
     public GameObject MainDoor;
     private Vector3 oldPos;
     public void Open()
@@ -17,6 +19,11 @@ public class Door : MonoBehaviour, IInteractable
         CreateSound.SFX(doorCreak, 1f, 0f, null, 2);
 
         MainDoor.transform.position = goTo.position;
+
+        if(SpawnOnOpen != null)
+        {
+            Instantiate(SpawnOnOpen, spawnAt.position, Quaternion.identity);
+        }
     }
 
     private bool opened = false;

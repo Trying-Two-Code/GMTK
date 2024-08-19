@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     
     private Vector3 velocity = Vector2.zero;
 
+    [Header("Components")]
+    [SerializeField] private PlayerStats stats;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
