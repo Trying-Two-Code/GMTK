@@ -33,6 +33,23 @@ public class InventoryObject : ScriptableObject
             itemObject?.DestroyItem();
         }
     }
+    
+    public bool CheckForItem(InventorySlot myItem, bool removeItem = false)
+    {
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if(Container[i].item == myItem.item)
+            {
+                if (removeItem)
+                {
+                    Container.RemoveAt(i);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
 
 [System.Serializable]

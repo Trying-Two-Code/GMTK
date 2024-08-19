@@ -12,7 +12,7 @@ public class Sound : MonoBehaviour
     public bool loop = false;
     private void Start()
     {
-        Invoke("SetAudioSettings", 1f);
+        Invoke("SetAudioSettings", .01f);
         if(timeBeforeDeathProper != 0f)
         {
             Destroy(gameObject, timeBeforeDeathProper);

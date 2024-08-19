@@ -12,4 +12,9 @@ public class PlayerManager : MonoBehaviour
     {
         inventory.Container.Clear();
     }
+
+    private void Update()
+    {
+        
+    }
 }

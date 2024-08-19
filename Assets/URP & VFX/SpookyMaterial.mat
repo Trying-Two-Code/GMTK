@@ -95,8 +95,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Overall_Intensity: 0
-    - VHS_Intensity: 0.15
+    - Overall_Intensity: 0.19
+    - VHS_Intensity: 5.04
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0

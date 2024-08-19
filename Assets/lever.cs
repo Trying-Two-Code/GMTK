@@ -10,11 +10,12 @@ public class lever : MonoBehaviour, IInteractable
     public void Interact(PlayerManager player)
     {
         movedObject.transform.position = newPosition.position;
-        Destroy(gameObject);
+        
         if(sfx != null)
         {
             CreateSound.SFX(sfx, 1f, 0, null, 1f);
         }
+        Destroy(gameObject);
     }
 
 }

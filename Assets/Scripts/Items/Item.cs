@@ -10,6 +10,7 @@ public class Item : MonoBehaviour, IInteractable
     public void Interact(PlayerManager player)
     {
         player.inventory.AddItem(item, 1, this);
+        Debug.Log("ADDED, current inventory: " + player.inventory.Container.ToArray());
         if(DestroyThis != null)
         {
             Destroy(DestroyThis);

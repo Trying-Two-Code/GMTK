@@ -33,13 +33,16 @@ public class ShrinkingRoom2 : MonoBehaviour
     {
         for (int i = 0; i < Walls.Length; i++)
         {
-            Walls[i].position = Vector3.MoveTowards(Walls[i].position, center.position, Time.deltaTime * speed * wallMult);
+            Walls[i].position = new Vector3(Vector3.MoveTowards(Walls[i].position, center.position, Time.deltaTime * speed * wallMult).x, Walls[i].position.y, Vector3.MoveTowards(Walls[i].position, center.position, Time.deltaTime * speed * wallMult).z);
         }
         for (int i = 0; i < Ceiling.Length; i++)
         {
             Ceiling[i].position = Vector3.MoveTowards(Ceiling[i].position, center.position, Time.deltaTime * speed * ceilingMult);
         }
-
+        for (int i = 0; i < props.Length; i++)
+        {
+            props[i].transform.position = Vector3.MoveTowards(props[i].transform.position, center.position, Time.deltaTime * speed * ceilingMult / 10f);
+        }
     }
 
     private void Update()
@@ -72,6 +75,8 @@ public class ShrinkingRoom2 : MonoBehaviour
     }
 
     //\/\/\/\/\/\/ RESET OBJECTS POSITIONS \/\/\/\/\/\/
+
+
     private void Start()
     {
         SetObjs();
@@ -118,6 +123,7 @@ public class ShrinkingRoom2 : MonoBehaviour
         {
             THING._object.transform.position = THING.position;
         }
+        Destroy(gameObject);
     }
 
     

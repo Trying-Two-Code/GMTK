@@ -13,6 +13,7 @@ public class Interactions : MonoBehaviour
     [HideInInspector] public bool disablePrompt;
     [SerializeField] private Transform interactionSource;
     public static KeyCode interactKey = KeyCode.E;
+    public static KeyCode interactKey2 = KeyCode.Space;
     [SerializeField] private float interactRange;
     [SerializeField] private GameObject interactPrompt, swapObject;
     [SerializeField] private PlayerManager plr;
@@ -20,7 +21,7 @@ public class Interactions : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(interactKey))
+        if (Input.GetKeyDown(interactKey) || Input.GetKeyDown(interactKey2) || Input.GetMouseButtonDown(1))
         {
             Ray ray = new Ray(interactionSource.position, interactionSource.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange))
