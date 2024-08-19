@@ -28,7 +28,7 @@ public class Door : MonoBehaviour, IInteractable
 
     private bool opened = false;
 
-    void Close()
+    public void Close()
     {
         CreateSound.SFX(doorCreak, 1f, 0f, null, 3);
 

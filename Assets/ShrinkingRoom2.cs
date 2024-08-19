@@ -99,6 +99,8 @@ public class ShrinkingRoom2 : MonoBehaviour
             AllThings[i]._object = roomPart.gameObject;
             AllThings[i].position = roomPart.position;
             i++;
+
+            
         }
         foreach (Transform roomPart in Ceiling)
         {
@@ -122,6 +124,14 @@ public class ShrinkingRoom2 : MonoBehaviour
         foreach(obj THING in AllThings)
         {
             THING._object.transform.position = THING.position;
+
+            if(THING._object.GetComponent<Door>() != null)
+            {
+                Door d = THING._object.GetComponent<Door>();
+                
+                d.Close();
+                d.Open();
+            }
         }
         Destroy(gameObject);
     }
