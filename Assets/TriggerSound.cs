@@ -5,8 +5,41 @@ using UnityEngine;
 public class TriggerSound : MonoBehaviour
 {
     public AudioClip thisSound;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool die = true;
+    public float volume = 1f;
+    public Transform goHere = null;
+    public float delay = 0f;
+
+    private void OnTriggerEnter(Collider _other)
     {
-        CreateSound.SFX(thisSound, 1f, 0f, null, 10f);
+        other = _other;
+        if(delay > 0)
+        {
+            Invoke("DoAllat", delay);
+        }
+        else
+        {
+            DoAllat();
+        }
     }
+
+    private Collider other;
+    void DoAllat()
+    {
+        Debug.Log("I hit something: " + other.gameObject.tag);
+        if (other.gameObject.tag == "Player")
+        {
+            CreateSound.SFX(thisSound, volume, 0f, goHere, 25f);
+            if (die)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                enabled = false;
+            }
+
+        }
+    }
+
 }
