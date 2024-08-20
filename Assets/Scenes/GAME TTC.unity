@@ -504,6 +504,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 66a06be7fcdc6ed45b63f5079b39f6b0, type: 3}
   - {fileID: 8300000, guid: 19265c6a235a9a74788eb230f72bd094, type: 3}
   - {fileID: 8300000, guid: 140a8cc517aecab4a8b4e80bdcbfe7d2, type: 3}
+  - {fileID: 8300000, guid: cdf80746dded3904eadc155ed75c4e51, type: 3}
+  - {fileID: 8300000, guid: 30597e114493d9946b43e441631230b9, type: 3}
+  - {fileID: 8300000, guid: ddee83c4dd6f5724bb8a111fd874c15b, type: 3}
   ambientSounds:
   - {fileID: 8300000, guid: b0f19826d392aec4ab2ed7c1fede3b42, type: 3}
   - {fileID: 8300000, guid: 2e191aa8290c8c945ae261b8e276967a, type: 3}
