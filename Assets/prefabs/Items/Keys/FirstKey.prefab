@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552509a5402066b4fb7e4f2883d273a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCollectSFX: {fileID: 8300000, guid: 29711f75274783e45af041f5873dd6df, type: 3}
   item: {fileID: 11400000, guid: 31a749eadf5c46042aa807b495209698, type: 2}
   DestroyThis: {fileID: 0}
 --- !u!65 &7957638964964185029

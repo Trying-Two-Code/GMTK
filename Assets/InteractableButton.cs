@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class InteractableButton : MonoBehaviour, IInteractable
 {
+    public BoxCollider[] FixThese;
+
+    public AudioClip Sound;
+
     public MeshRenderer _button;
     public Material Deactivated;
     public Material Activated;
@@ -15,13 +19,21 @@ public class InteractableButton : MonoBehaviour, IInteractable
 
     private bool pressed = false;
 
+    public Animator SetReady;
     public GameObject MoveThis;
     public Transform Here;
     public Door OpenThis;
     public int whenThisManyPressed;
+    public float PlayerSpeedAdd;
+
+    public bool dieOnClick = false;
     public void Interact(PlayerManager player)
     {
-        _button.material = Activated;
+        if(_button != null)
+        {
+            _button.material = Activated;
+        }
+       
         ButtonsPressed += 1;
         t = TimeTilNotPressed;
         pressed = true;
@@ -32,6 +44,10 @@ public class InteractableButton : MonoBehaviour, IInteractable
 
         if (pressed)
         {
+            if (SetReady != null)
+            {
+                SetReady.SetBool("ready", true);
+            }
             Debug.Log(ButtonsPressed);
             t -= Time.deltaTime;
             if(t <= 0)
@@ -53,7 +69,36 @@ public class InteractableButton : MonoBehaviour, IInteractable
                     MoveThis = null;
                 }
             }
-            
+            if (dieOnClick)
+            {
+                Destroy(gameObject);
+            }
+            if(PlayerSpeedAdd > 0)
+            {
+                PlayerController PC = GameObject.Find("Player").GetComponent<PlayerController>();
+                PC.maxSprintSpeed += PlayerSpeedAdd;
+                PC.maxSpeed += PlayerSpeedAdd;
+                PC.acceleration += PlayerSpeedAdd;
+            }
+            if(Sound != null)
+            {
+                if (dieOnClick)
+                {
+                    CreateSound.SFX(Sound, 1, 0, null, 10f);
+                }
+                else
+                {
+                    CreateSound.SFX(Sound, 1, 0, transform, 10f);
+                }
+                
+            }
+            if(FixThese.Length != 0)
+            {
+                for (int i = 0; i < FixThese.Length; i++)
+                {
+                    FixThese[i].enabled = true;
+                }
+            }
         }
     }
 
@@ -62,7 +107,11 @@ public class InteractableButton : MonoBehaviour, IInteractable
         pressed = false;
         t = TimeTilNotPressed;
         ButtonsPressed -= 1;
-        _button.material = Deactivated;
+        if(_button != null)
+        {
+            _button.material = Deactivated;
+        }
+        
     }
 
 }

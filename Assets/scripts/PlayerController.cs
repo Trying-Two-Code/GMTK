@@ -3,9 +3,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Character Properties")]
-    [SerializeField] private float maxSprintSpeed = 8f;
-    [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float acceleration = 10f;
+    public float maxSprintSpeed = 8f;
+    public float maxSpeed = 5f;
+    public float acceleration = 10f;
     [SerializeField] private float friction = 5f;
     [SerializeField] private float gravity = 9.81f;
 
@@ -88,5 +88,25 @@ public class PlayerController : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, maxLookUp, maxLookDown);
 
         gimbalTransform.localEulerAngles = new Vector3(xRotation, 0f, 0f);
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Check if the collided object has a MeshCollider
+        MeshCollider meshCollider = hit.collider as MeshCollider;
+
+        if (meshCollider != null)
+        {
+            // Get the tag of the collided object
+            string tag = hit.gameObject.tag;
+
+            // Output the tag to the console
+            //Debug.Log("Collided with object tagged: " + tag);
+            
+            if(tag != "safeToTouch")
+            {
+                stats.hurt(1);
+            }
+        }
     }
 }

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
 {
+    public GameObject DestroyThis = null;
+    public bool DestroyOnOpen = false;
+
+    public AudioClip canNotOpenSFX;
+
     public GameObject SpawnOnOpen = null;
     public bool AutoClose = false;
     public bool requireKey = false;
@@ -23,6 +28,7 @@ public class Door : MonoBehaviour, IInteractable
         if(SpawnOnOpen != null)
         {
             Instantiate(SpawnOnOpen, spawnAt.position, Quaternion.identity);
+            SpawnOnOpen = null;
         }
     }
 
@@ -42,6 +48,7 @@ public class Door : MonoBehaviour, IInteractable
             Close();
             requireKey = true;
             AutoClose = false;
+            DestroyOnOpen = true;
         }
         else
         {
@@ -57,7 +64,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         oldPos = MainDoor.transform.position;
     }
-
+    public bool setAutoOff = true;
     public void Interact(PlayerManager player)
     {
         if (requireKey)
@@ -70,7 +77,23 @@ public class Door : MonoBehaviour, IInteractable
                 Debug.Log("has key");
                 requireKey = false;
                 CheckForOpenClose();
-                AutoClose = false;
+                if (setAutoOff)
+                {
+                    AutoClose = false;
+                }
+                
+                if (DestroyOnOpen)
+                {
+                    if(DestroyThis != null)
+                    {
+                        Destroy(DestroyThis);
+                    }
+                    
+                }
+            }
+            else
+            {
+                CreateSound.SFX(canNotOpenSFX, 1f, 0, transform, 2f);
             }
         }
         else

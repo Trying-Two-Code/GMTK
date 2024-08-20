@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GAME TTC.unity
-    guid: 9286b6dd020c2cf46888a0f74eb9878e
+    path: Assets/Scenes/TTC Game Fixed.unity
+    guid: 5e9793203a84e9f4591510aeea82f80d
   - enabled: 0
     path: Assets/Scenes/GAME.unity
     guid: 99c9720ab356a0642a771bea13969a05
